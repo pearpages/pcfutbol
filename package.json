@@ -1,0 +1,19 @@
+{
+  "name": "pcfutbol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc ./src/lib/createPlayer.ts --outDir ./dist",
+    "start": "npm run build && node ./dist/createPlayer.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/faker": "^5.5.8",
+    "faker": "https://github.com/Marak/Faker.js",
+    "typescript": "^4.4.2"
+  }
+}
