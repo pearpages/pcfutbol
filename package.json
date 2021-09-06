@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc ./src/lib/createPlayer.ts --outDir ./dist",
-    "start": "npm run build && node ./dist/createPlayer.js"
+    "build": "tsc ./src/lib/index.ts --outDir ./dist",
+    "start": "npm run build && node ./dist/index.js"
   },
   "keywords": [],
   "author": "",

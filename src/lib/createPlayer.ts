@@ -1,9 +1,7 @@
-import type { Player, Position, QualityRange } from "./models";
 import * as fake from "faker";
 
-function generateRandom(maxDiff: number, minValue = 0): number {
-  return minValue + Math.ceil(Math.random() * maxDiff);
-}
+import type { Player, Position, QualityRange } from "./models";
+import { generateRandom } from "./utils";
 
 function getQualityRangeValues(qualityRange: QualityRange): {
   quality: number;
@@ -96,13 +94,3 @@ function createPlayer({
 }
 
 export default createPlayer;
-
-console.log(createPlayer({position: 'Defender', currentYear: 2021, qualityRange: 1}));
-console.log(createPlayer({position: 'Defender', currentYear: 2021, qualityRange: 2}));
-console.log(createPlayer({position: 'Defender', currentYear: 2021, qualityRange: 3}));
-console.log(createPlayer({position: 'Defender', currentYear: 2021, qualityRange: 4}));
-console.log(createPlayer({position: 'Defender', currentYear: 2021, qualityRange: 5}));
-console.log(createPlayer({position: 'Defender', currentYear: 2021, qualityRange: 6}));
-console.log(createPlayer({position: 'Defender', currentYear: 2021, qualityRange: 7}));
-console.log(createPlayer({position: 'Defender', currentYear: 2021, qualityRange: 8}));
-console.log(createPlayer({position: 'Defender', currentYear: 2021, qualityRange: 9}));
