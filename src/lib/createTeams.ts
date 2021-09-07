@@ -28,4 +28,4 @@ function createTeams(): Squad[] {
   return teams.map(team => createSquad(team.name, team.quality))
 }
 
-export { createTeams };
+export { createTeams, teams };
