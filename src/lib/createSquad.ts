@@ -159,4 +159,5 @@ function createSquad(name: TeamName, teamQuality: TeamQuality): Squad {
   return { name, players: generateRandomPlayers(teamQuality) };
 }
 
-export { createSquad };
+export { createSquad};
+export type {TeamName, TeamQuality, Squad };

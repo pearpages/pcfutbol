@@ -25,4 +25,5 @@ function getRandomIndex(maxNumber: number, excluded: number[] = []) {
   return res;
 }
 
-export { generateRandomNumber, makeRandomValue, getRandomIndex, RandomValue };
+export { generateRandomNumber, makeRandomValue, getRandomIndex};
+export type { RandomValue };
