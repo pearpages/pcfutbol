@@ -1,77 +1,130 @@
-import * as fake from "faker";
+import { name as fakeName } from "faker";
+import { v4 as uuidv4 } from 'uuid'
 
-import type { Player, Position, QualityRange } from "./models";
-import { generateRandom } from "./utils";
+import type { Player, Position, PlayerQualityRange } from "./models";
+import { generateRandomNumber, makeRandomValue } from "./utils";
 
-function getQualityRangeValues(qualityRange: QualityRange): {
+type QualityValues = {
   quality: number;
   salaryInThousandEur: number;
   marketValueInThousandEur: number;
-} {
+};
+
+function getQualityRangeValues(
+  qualityRange: PlayerQualityRange
+): QualityValues {
   if (qualityRange === 1) {
     return {
-      quality: generateRandom(9, 10),
-      salaryInThousandEur: generateRandom(1),
-      marketValueInThousandEur: generateRandom(10),
+      quality: generateRandomNumber({ maxPositiveDiff: 9, minValue: 10 }),
+      salaryInThousandEur: generateRandomNumber(makeRandomValue(1)),
+      marketValueInThousandEur: generateRandomNumber(makeRandomValue(10)),
     };
   }
   if (qualityRange === 2) {
     return {
-      quality: generateRandom(9, 20),
-      salaryInThousandEur: generateRandom(2, 1),
-      marketValueInThousandEur: generateRandom(90, 10),
+      quality: generateRandomNumber({ maxPositiveDiff: 9, minValue: 20 }),
+      salaryInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 92,
+        minValue: 1,
+      }),
+      marketValueInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 990,
+        minValue: 10,
+      }),
     };
   }
   if (qualityRange === 3) {
     return {
-      quality: generateRandom(9, 30),
-      salaryInThousandEur: generateRandom(7, 3),
-      marketValueInThousandEur: generateRandom(200, 100),
+      quality: generateRandomNumber({ maxPositiveDiff: 9, minValue: 30 }),
+      salaryInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 97,
+        minValue: 3,
+      }),
+      marketValueInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 9200,
+        minValue: 100,
+      }),
     };
   }
   if (qualityRange === 4) {
     return {
-      quality: generateRandom(9, 40),
-      salaryInThousandEur: generateRandom(30, 10),
-      marketValueInThousandEur: generateRandom(500, 100),
+      quality: generateRandomNumber({ maxPositiveDiff: 9, minValue: 40 }),
+      salaryInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 930,
+        minValue: 10,
+      }),
+      marketValueInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 9500,
+        minValue: 100,
+      }),
     };
   }
   if (qualityRange === 5) {
     return {
-      quality: generateRandom(9, 50),
-      salaryInThousandEur: generateRandom(60, 40),
-      marketValueInThousandEur: generateRandom(300, 600),
+      quality: generateRandomNumber({ maxPositiveDiff: 9, minValue: 50 }),
+      salaryInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 960,
+        minValue: 40,
+      }),
+      marketValueInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 9300,
+        minValue: 600,
+      }),
     };
   }
   if (qualityRange === 6) {
     return {
-      quality: generateRandom(9, 60),
-      salaryInThousandEur: generateRandom(100, 100),
-      marketValueInThousandEur: generateRandom(600, 900),
+      quality: generateRandomNumber({ maxPositiveDiff: 9, minValue: 60 }),
+      salaryInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 9100,
+        minValue: 100,
+      }),
+      marketValueInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 9600,
+        minValue: 900,
+      }),
     };
   }
   if (qualityRange === 7) {
     return {
-      quality: generateRandom(9, 70),
-      salaryInThousandEur: generateRandom(300, 200),
-      marketValueInThousandEur: generateRandom(3500, 1500),
+      quality: generateRandomNumber({ maxPositiveDiff: 9, minValue: 70 }),
+      salaryInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 9300,
+        minValue: 200,
+      }),
+      marketValueInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 93500,
+        minValue: 1500,
+      }),
     };
   }
   if (qualityRange === 8) {
     return {
-      quality: generateRandom(9, 80),
-      salaryInThousandEur: generateRandom(10000, 500),
-      marketValueInThousandEur: generateRandom(100000, 5000),
+      quality: generateRandomNumber({ maxPositiveDiff: 9, minValue: 80 }),
+      salaryInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 910000,
+        minValue: 500,
+      }),
+      marketValueInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 9100000,
+        minValue: 5000,
+      }),
     };
   }
   if (qualityRange === 9) {
     return {
-      quality: generateRandom(7, 90),
-      salaryInThousandEur: generateRandom(35000, 10500),
-      marketValueInThousandEur: generateRandom(345000, 105000),
+      quality: generateRandomNumber({ maxPositiveDiff: 7, minValue: 90 }),
+      salaryInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 935000,
+        minValue: 10500,
+      }),
+      marketValueInThousandEur: generateRandomNumber({
+        maxPositiveDiff: 9345000,
+        minValue: 105000,
+      }),
     };
   }
-  throw new Error('Wrong range');
+  throw new Error("Wrong range");
 }
 
 function createPlayer({
@@ -80,17 +133,22 @@ function createPlayer({
   qualityRange,
 }: {
   position: Position;
-  qualityRange: QualityRange;
+  qualityRange: PlayerQualityRange;
   currentYear: number;
 }): Player {
   const MALE = 0;
   return {
+    id: uuidv4(),
     position,
-    name: `${fake.name.firstName(MALE)} ${fake.name.lastName()}`,
-    age: 15 + Math.floor(Math.random() * 12),
+    name: `${fakeName.firstName(MALE)} ${fakeName.lastName()}`,
+    age: 15 + Math.floor(Math.random() * 22),
     yearContractEnd: currentYear + Math.ceil(Math.random() * 5),
     ...getQualityRangeValues(qualityRange),
-  };
+  }
 }
 
-export default createPlayer;
+function playerSummary(player: Player): string {
+  return `${player.name} ${player.quality} ${player.age}`
+}
+
+export { createPlayer, getQualityRangeValues, playerSummary };

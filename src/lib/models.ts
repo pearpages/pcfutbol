@@ -1,6 +1,7 @@
-export type Position = "Goalkeeper" | "Defender" | "Midfielder" | "Forward";
+export type Position = 1 | 2 | 3 | 4;
 
 export interface Player {
+  id: string;
   position: Position;
   name: string;
   quality: number;
@@ -10,7 +11,14 @@ export interface Player {
   marketValueInThousandEur: number;
 }
 
-export type QualityRange = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+export type RandomValue = {
+  maxPositiveDiff: number;
+  minValue: number;
+}
+
+export type PlayerQualityRange = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+
+export type TeamQuality = 'MEDIOCRE' | 'POOR' | 'OKAY' | 'AVERAGE' | 'GOOD' | 'TOP';
 
 export interface Squad {
   name: string;
