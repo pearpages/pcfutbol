@@ -1,4 +1,7 @@
-import type { RandomValue } from "./models";
+type RandomValue = {
+  maxPositiveDiff: number;
+  minValue: number;
+}
 
 function generateRandomNumber({
   minValue = 0,
@@ -22,4 +25,4 @@ function getRandomIndex(maxNumber: number, excluded: number[] = []) {
   return res;
 }
 
-export { generateRandomNumber, makeRandomValue, getRandomIndex };
+export { generateRandomNumber, makeRandomValue, getRandomIndex, RandomValue };
