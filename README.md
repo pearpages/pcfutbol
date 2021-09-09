@@ -5,6 +5,7 @@ This project is intended to be a simple football manager with incremental featur
 
 - uuid
 - faker
+- material-ui
 
 ## Resources
 
