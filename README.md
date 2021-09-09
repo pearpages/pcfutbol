@@ -13,6 +13,7 @@ This project is intended to be a simple football manager with incremental featur
 - [Redux](https://redux.js.org/)
 - [Redux-toolkit](https://redux-toolkit.js.org/)
 - [React-redux](https://react-redux.js.org/)
+- [Material UI](https://material-ui.com/)
 
 ## create-react-app
 
