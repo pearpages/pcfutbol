@@ -1,7 +1,10 @@
-import { teams } from "./createTeams";
+import { teams } from "./createSquads";
 import type { TeamName } from "./createSquad";
 
-export function createMatches(ps = teams.map(team => team.name)): [TeamName, TeamName][] {
+type Match = [TeamName, TeamName];
+type Jornada = Match[];
+
+function createMatches(ps = teams.map(team => team.name)): Jornada[] {
   const n = ps.length;
   const totalMatches = (n -1)* 2;
   const rs = new Array(totalMatches); // rs = round array
@@ -21,3 +24,6 @@ export function createMatches(ps = teams.map(team => team.name)): [TeamName, Tea
   }
   return rs;
 }
+
+export { createMatches };
+export type { Match, Jornada };
