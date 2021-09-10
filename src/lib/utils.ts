@@ -14,7 +14,7 @@ function makeRandomValue(maxPositiveDiff: number, minValue = 0): RandomValue {
   return { maxPositiveDiff, minValue };
 }
 
-function getRandomIndex(maxNumber: number, excluded: number[] = []) {
+function getRandomIndex(maxNumber: number, excluded: number[] = []): number {
   let res = null;
   while (res === null) {
     let temp = Math.floor(Math.random() * maxNumber);
