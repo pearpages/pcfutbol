@@ -1,20 +1,5 @@
 import { createSquad } from "./createSquad";
-import { PlayerData } from "./models";
-
-type TeamQuality = "MEDIOCRE" | "POOR" | "OKAY" | "AVERAGE" | "GOOD" | "TOP";
-
-const tactics = [
-  "5-3-2",
-  "5-4-1",
-  "4-4-2",
-  "4-5-1",
-  "4-2-4",
-  "4-3-3",
-  "3-3-4",
-  "3-4-3",
-  "3-5-2",
-] as const;
-type Tactic = typeof tactics[number];
+import { TeamData } from "./models";
 
 const teamNames = [
   "Real Madrid",
@@ -41,17 +26,7 @@ const teamNames = [
 
 type TeamName = typeof teamNames[number];
 
-type Team = {
-  name: TeamName;
-  quality: TeamQuality;
-  players: PlayerData[];
-  games: number;
-  points: number;
-  lastResult: "WON" | "LOST" | "DRAW" | "BETWEEN_SEASONS";
-  tactic: Tactic;
-};
-
-const teams: Team[] = [
+const teams: TeamData[] = [
   {
     name: "Real Madrid",
     quality: "TOP",
@@ -234,9 +209,9 @@ const teams: Team[] = [
   },
 ];
 
-function createTeams(): Team[] {
+function createTeams(): TeamData[] {
   return teams.map((team) => ({ ...team, players: createSquad(team.quality) }));
 }
 
-export { createTeams, teams, teamNames, tactics };
-export type { Team, TeamName, TeamQuality, Tactic };
+export { createTeams, teams, teamNames };
+export type { TeamName };

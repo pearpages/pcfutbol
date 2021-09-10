@@ -1,6 +1,6 @@
 import type { PlayerQualityRange, PlayerData, Position } from "./models";
 import type { RandomValue } from "./utils";
-import type { TeamQuality } from "./createTeams";
+import type { TeamQuality } from "./models";
 import { generateRandomNumber, makeRandomValue, getRandomIndex } from "./utils";
 import { createPlayer, getQualityRangeValues } from "./createPlayer";
 

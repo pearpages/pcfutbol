@@ -1,8 +1,12 @@
 import React from "react";
 
-import { Team } from "../lib/createTeams";
+import { TeamData } from "../lib/models";
 
-export function Classification({ teams: originalTeams }: { teams: Team[] }) {
+export function Classification({
+  teams: originalTeams,
+}: {
+  teams: TeamData[];
+}) {
   const teams = originalTeams.slice().sort((a, b) => b.points - a.points);
 
   return (

@@ -1,5 +1,4 @@
-import type { PlayerData, Position } from "./models";
-import type { Tactic } from "./createTeams";
+import type { PlayerData, Position, Tactic } from "./models";
 
 function getBestPlayers(
   players: PlayerData[],

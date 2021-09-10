@@ -1,9 +1,8 @@
-import { Team as TeamType } from "./createTeams";
-import { PlayerData } from "./models";
+import { PlayerData, TeamData } from "./models";
 import { Squad } from "./Squad";
 
 const Team = {
-  of(team: TeamType) {
+  of(team: TeamData) {
     return {
       get() {
         return team;

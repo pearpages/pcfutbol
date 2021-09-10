@@ -1,5 +1,5 @@
-import type { MatchData } from "./models";
-import type { Team as TeamType, TeamName } from "./createTeams";
+import type { TeamData, MatchData } from "./models";
+import type { TeamName } from "./createTeams";
 import { Matches } from "./Matches";
 import { Squad } from "./Squad";
 import { Teams } from "./Teams";
@@ -48,7 +48,7 @@ class Game {
     });
   }
 
-  getPlayerTeam(): TeamType {
+  getPlayerTeam(): TeamData {
     return this.teams.getTeam(this.playerTeam);
   }
 

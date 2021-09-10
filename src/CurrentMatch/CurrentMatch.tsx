@@ -5,10 +5,10 @@ import { Game } from "../lib/Game";
 import { Match } from "../lib/Match";
 import { Squad } from "../lib/Squad";
 import { Team } from "../lib/Team";
-import { Team as TeamType } from "../lib/createTeams";
+import { TeamData } from "../lib/models";
 
 function getDescription(
-  team: TeamType,
+  team: TeamData,
   players: ReturnType<typeof Squad.of>
 ): string {
   return `${team.name} ${team.tactic} (${players.averageToFixed2()})`;

@@ -1,10 +1,10 @@
-import { PlayerData } from "./models";
-import { createTeams, Team, TeamName } from "./createTeams";
+import { PlayerData, TeamData } from "./models";
+import { createTeams, TeamName } from "./createTeams";
 
 class Teams {
   constructor(private teams = createTeams()) {}
 
-  getTeam(teamName: TeamName): Team {
+  getTeam(teamName: TeamName): TeamData {
     return this.teams.find((squad) => squad.name === teamName)!;
   }
 
@@ -12,7 +12,7 @@ class Teams {
     return this.getTeam(teamName)!.players;
   }
 
-  getAll(): Team[] {
+  getAll(): TeamData[] {
     return this.teams;
   }
 }
