@@ -3,6 +3,8 @@ import { Player } from "./models";
 
 type TeamQuality = "MEDIOCRE" | "POOR" | "OKAY" | "AVERAGE" | "GOOD" | "TOP";
 
+type Tactic = "5-3-2" | "5-4-1" | "4-4-2" | "4-5-1" | "4-2-4" | "4-3-3" | "3-3-4" | "3-4-3" | "3-5-2";
+
 type TeamName =
   | "Real Madrid"
   | "Sevilla"
@@ -54,30 +56,31 @@ type Team = {
   players: Player[];
   games: number;
   points: number;
-  lastResult: 'WON'|'LOST'|'DRAW'|'BETWEEN_SEASONS'
+  lastResult: 'WON'|'LOST'|'DRAW'|'BETWEEN_SEASONS';
+  tactic: Tactic;
 };
 
 const teams: Team[] = [
-  { name: "Real Madrid", quality: "TOP", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Sevilla", quality: "GOOD", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Valencia", quality: "GOOD", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Barcelona", quality: "TOP", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Atlético", quality: "TOP", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Mallorca", quality: "AVERAGE", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "R. Sociedad", quality: "GOOD", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Osasuna", quality: "AVERAGE", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Athletic", quality: "GOOD", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Rayo", quality: "OKAY", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Villarreal", quality: "AVERAGE", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Cádiz", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Levante", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Betis", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Elche", quality: "MEDIOCRE", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Espanyol", quality: "OKAY", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Granada", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Celta", quality: "OKAY", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Getafe", quality: "GOOD", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
-  { name: "Alavés", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
+  { name: "Real Madrid", quality: "TOP", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Sevilla", quality: "GOOD", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Valencia", quality: "GOOD", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Barcelona", quality: "TOP", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Atlético", quality: "TOP", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Mallorca", quality: "AVERAGE", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "R. Sociedad", quality: "GOOD", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Osasuna", quality: "AVERAGE", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Athletic", quality: "GOOD", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Rayo", quality: "OKAY", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Villarreal", quality: "AVERAGE", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Cádiz", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Levante", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Betis", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Elche", quality: "MEDIOCRE", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Espanyol", quality: "OKAY", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Granada", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Celta", quality: "OKAY", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Getafe", quality: "GOOD", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
+  { name: "Alavés", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS', tactic: "4-4-2" },
 ];
 
 function createTeams(): Team[] {

@@ -1,80 +1,24 @@
 import React, { useState } from "react";
-import { createTeams } from "./lib/createTeams";
-import type { Match } from "./lib/createMatches";
-import { createMatches } from "./lib/createMatches";
-import type { TeamName } from "./lib/createTeams";
-import { teamNames } from "./lib/createTeams";
-import type { Player } from "./lib/models";
+import { Match } from './lib/Match';
+import { Squad } from './lib/Squad';
+import { Game } from "./lib/Game";
 import { Classification } from './Classification';
 
 import "./App.css";
 
-const teams = createTeams();
-const matches = createMatches(teamNames);
-
-function getTeam(teamName: TeamName) {
-  return teams.find((squad) => squad.name === teamName);
-}
-
-function getSquad(teamName: TeamName): Player[] {
-  return getTeam(teamName)!.players;
-}
-
-function getMatches(teamName: TeamName): Match[] {
-  return matches.flatMap((round) =>
-    round.filter((teams) => teams.includes(teamName))
-  );
-}
-
-function calculateSquadAverage(players: Player[]): number {
-  const totalQuality = players.reduce(
-    (total, player) => total + player.quality,
-    0
-  );
-  return totalQuality / players.length;
-}
-
-function playJornada(jornadaNumber: number) {
-  const jornada = matches[jornadaNumber];
-  jornada.forEach(match => {
-    const homeTeam = getTeam(match[0]);
-    const awayTeam = getTeam(match[1]);
-
-    const qualityHome = calculateSquadAverage(homeTeam!.players)
-    const qualityAway = calculateSquadAverage(awayTeam!.players)
-
-    homeTeam!.games++;
-    awayTeam!.games++;
-    if (qualityHome > qualityAway) {
-      homeTeam!.points = homeTeam!.points + 3;
-      homeTeam!.lastResult = 'WON';
-      awayTeam!.lastResult = 'LOST';
-    } else {
-      awayTeam!.points = awayTeam!.points + 3;
-      awayTeam!.lastResult = 'WON';
-      homeTeam!.lastResult = 'LOST';
-    }
-  })
-}
-
-const barcaTeam = getTeam('Barcelona');
-const barcaSquad = getSquad("Barcelona");
-const barcaMatches = getMatches("Barcelona");
-const barcaQuality = calculateSquadAverage(barcaSquad);
+const game = new Game({playerTeam: 'Barcelona'});
 
 type Screen = "RESULT" | "PREMATCH";
 
 function App() {
   const [jornada, setJornada] = useState(0);
   const [screen, setScreen] = useState<Screen>("PREMATCH");
-  const [result, setResult] = useState<'WON'|'LOST'|'DRAW'|'BETWEEN_SEASONS'>('BETWEEN_SEASONS');
 
-  const currentMatch = barcaMatches[jornada];
-  const rival = currentMatch.find((team) => team !== "Barcelona") as TeamName;
+  const currentMatch = game.getPlayerMatch(jornada);
+  const rivalName = Match.of(currentMatch).getRival(game.getPlayerTeam().name);
 
   const playGame = () => {
-    playJornada(jornada);
-    setResult(barcaTeam!.lastResult);
+    game.playJornada(jornada);
     setScreen("RESULT");
   };
 
@@ -87,7 +31,7 @@ function App() {
     <div className="App">
       <div>CALENDAR</div>
       <div>
-        <Classification teams={teams} />
+        <Classification teams={game.teams.getAll()} />
       </div>
       <div>TEAM MANAGEMENT</div>
       <div>
@@ -95,16 +39,16 @@ function App() {
           Current match: <strong>{currentMatch.join(" ")}</strong>
         </div>
         <div>
-          <div>Barca: {barcaQuality}</div>
+          <div>Barca: {Squad.of(game.getPlayerTeam().players).calculateSquadAverage()}</div>
           <div>
-            {rival}: {calculateSquadAverage(getSquad(rival))}
+            {rivalName}: {Squad.of(game.teams.getSquad(rivalName)).calculateSquadAverage()}
           </div>
         </div>
         {screen === "PREMATCH" ? (
           <button onClick={playGame}>Play Game</button>
         ) : (
           <div>
-            RESULT: {result}
+            RESULT: {game.getPlayerTeam().lastResult}
             <br/><button onClick={nextGame}>NEXT</button>
           </div>
         )}
