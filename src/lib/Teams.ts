@@ -1,4 +1,4 @@
-import { Player } from "./models";
+import { PlayerData } from "./models";
 import { createTeams, Team, TeamName } from "./createTeams";
 
 class Teams {
@@ -8,7 +8,7 @@ class Teams {
     return this.teams.find((squad) => squad.name === teamName)!;
   }
 
-  getSquad(teamName: TeamName): Player[] {
+  getSquad(teamName: TeamName): PlayerData[] {
     return this.getTeam(teamName)!.players;
   }
 

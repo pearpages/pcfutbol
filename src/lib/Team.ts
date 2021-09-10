@@ -1,5 +1,5 @@
 import { Team as TeamType } from "./createTeams";
-import { Player } from "./models";
+import { PlayerData } from "./models";
 import { Squad } from "./Squad";
 
 const Team = {
@@ -8,7 +8,7 @@ const Team = {
       get() {
         return team;
       },
-      pickFormation(): Player[] {
+      pickFormation(): PlayerData[] {
         return Squad.of(team.players).pickBest11(team.tactic);
       },
     };

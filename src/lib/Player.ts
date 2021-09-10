@@ -1,11 +1,11 @@
-import type { Player as PlayerType} from './models';
+import type { PlayerData } from "./models";
 
 export const Player = {
-  of(player: PlayerType) {
+  of(player: PlayerData) {
     return {
-      getQuality() {
-        return `${player.quality} ${player.position} ${player.name}`
-      }
-    }
-  }
-}
+      getQualityDescription() {
+        return `${player.quality} ${player.position} ${player.name}`;
+      },
+    };
+  },
+};

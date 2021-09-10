@@ -1,6 +1,6 @@
-import type { PlayerQualityRange, Player, Position } from "./models";
+import type { PlayerQualityRange, PlayerData, Position } from "./models";
 import type { RandomValue } from "./utils";
-import type { TeamQuality } from './createTeams';
+import type { TeamQuality } from "./createTeams";
 import { generateRandomNumber, makeRandomValue, getRandomIndex } from "./utils";
 import { createPlayer, getQualityRangeValues } from "./createPlayer";
 
@@ -68,8 +68,8 @@ function generatePlayersByPosition(
   position: Position,
   qualityRange: PlayerQualityRange,
   numberOfPlayers: RandomValue
-): Player[] {
-  const players: Player[] = [];
+): PlayerData[] {
+  const players: PlayerData[] = [];
   let totalPlayers = generateRandomNumber(numberOfPlayers);
   while (totalPlayers > 1) {
     players.push(createPlayer({ position, qualityRange, currentYear: 2021 }));
@@ -78,7 +78,7 @@ function generatePlayersByPosition(
   return players;
 }
 
-function generateRandomPlayers(teamQuality: TeamQuality): Player[] {
+function generateRandomPlayers(teamQuality: TeamQuality): PlayerData[] {
   const qualityRandomness = getQualityRandomness(teamQuality);
 
   const basePlayers = [
@@ -123,7 +123,7 @@ function generateRandomPlayers(teamQuality: TeamQuality): Player[] {
   return basePlayers;
 }
 
-function createSquad(teamQuality: TeamQuality): Player[] {
+function createSquad(teamQuality: TeamQuality): PlayerData[] {
   return generateRandomPlayers(teamQuality);
 }
 

@@ -1,12 +1,12 @@
 import React from "react";
-import { Player } from "../../lib/models";
+import { PlayerData } from "../../lib/models";
 
 export function Eleven({
   description,
   players,
 }: {
   description: string;
-  players: Player[];
+  players: PlayerData[];
 }) {
   return (
     <table>

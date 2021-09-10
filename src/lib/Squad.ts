@@ -1,21 +1,24 @@
-import type { Player, Position } from "./models";
+import type { PlayerData, Position } from "./models";
 import type { Tactic } from "./createTeams";
 
-function getBestPlayers(players: Player[], position: Position): Player[] {
+function getBestPlayers(
+  players: PlayerData[],
+  position: Position
+): PlayerData[] {
   return players
     .filter((player) => player.position === position)
     .sort((a, b) => b.quality - a.quality);
 }
 
 const Squad: {
-  of: (players: Player[]) => {
+  of: (players: PlayerData[]) => {
     calculateSquadAverage: () => number;
-    pickBest11: (tactic: Tactic) => Player[];
+    pickBest11: (tactic: Tactic) => PlayerData[];
     averageToFixed2: () => string;
-    get: () => Player[];
+    get: () => PlayerData[];
   };
 } = {
-  of(players: Player[]) {
+  of(players: PlayerData[]) {
     return {
       get() {
         return players;
@@ -30,7 +33,7 @@ const Squad: {
       averageToFixed2(): string {
         return Number(this.calculateSquadAverage()).toFixed(2);
       },
-      pickBest11(tactic: Tactic): Player[] {
+      pickBest11(tactic: Tactic): PlayerData[] {
         const [defendersNumber, midfieldersNumber, attackersNumber] =
           tactic.split("-");
 

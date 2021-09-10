@@ -1,11 +1,9 @@
 import type { TeamName } from "./createTeams";
+import type { JornadaData } from "./models";
 
-type Match = [TeamName, TeamName];
-type Jornada = Match[];
-
-function createMatches(teams: TeamName[]): Jornada[] {
+function createMatches(teams: TeamName[]): JornadaData[] {
   const n = teams.length;
-  const totalMatches = (n -1)* 2;
+  const totalMatches = (n - 1) * 2;
   const rs = new Array(totalMatches); // rs = round array
   teams = teams.slice();
 
@@ -25,4 +23,3 @@ function createMatches(teams: TeamName[]): Jornada[] {
 }
 
 export { createMatches };
-export type { Match, Jornada };

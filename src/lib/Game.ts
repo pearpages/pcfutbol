@@ -1,4 +1,4 @@
-import type { Match } from "./createMatches";
+import type { MatchData } from "./models";
 import type { Team as TeamType, TeamName } from "./createTeams";
 import { Matches } from "./Matches";
 import { Squad } from "./Squad";
@@ -52,11 +52,11 @@ class Game {
     return this.teams.getTeam(this.playerTeam);
   }
 
-  getPlayerMatches(): Match[] {
+  getPlayerMatches(): MatchData[] {
     return this.matches.getTeamMatches(this.playerTeam);
   }
 
-  getPlayerMatch(jornada: number): Match {
+  getPlayerMatch(jornada: number): MatchData {
     return this.getPlayerMatches()[jornada];
   }
 }

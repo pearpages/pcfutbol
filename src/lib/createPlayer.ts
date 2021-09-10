@@ -1,7 +1,7 @@
 import { name as fakeName } from "faker";
-import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 
-import type { Player, Position, PlayerQualityRange } from "./models";
+import type { PlayerData, Position, PlayerQualityRange } from "./models";
 import { generateRandomNumber, makeRandomValue } from "./utils";
 
 type QualityValues = {
@@ -135,7 +135,7 @@ function createPlayer({
   position: Position;
   qualityRange: PlayerQualityRange;
   currentYear: number;
-}): Player {
+}): PlayerData {
   const MALE = 0;
   return {
     id: uuidv4(),
@@ -144,11 +144,11 @@ function createPlayer({
     age: 15 + Math.floor(Math.random() * 22),
     yearContractEnd: currentYear + Math.ceil(Math.random() * 5),
     ...getQualityRangeValues(qualityRange),
-  }
+  };
 }
 
-function playerSummary(player: Player): string {
-  return `${player.name} ${player.quality} ${player.age}`
+function playerSummary(player: PlayerData): string {
+  return `${player.name} ${player.quality} ${player.age}`;
 }
 
 export { createPlayer, getQualityRangeValues, playerSummary };
