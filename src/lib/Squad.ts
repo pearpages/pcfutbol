@@ -1,22 +1,38 @@
-import { Player } from './models';
+import type { Player, Position } from './models';
+import type { Tactic } from './createTeams';
+
+function getBestPlayers(players: Player[], position: Position): Player[] {
+  return players.filter(player => player.position === position).sort((a, b) => b.quality - a.quality);
+}
 
 const Squad: {
-  players: Player[],
-  of: (players: Player[]) => typeof Squad,
-  calculateSquadAverage: () => number
-} = {
-  players: [] as Player[],
-  of(players: Player[]): typeof Squad {
-    this.players = players;
-    return this;
-  },
-  calculateSquadAverage(): number {
-    const totalQuality = this.players.reduce(
-      (total, player) => total + player.quality,
-      0
-    );
-    return totalQuality / this.players.length;
+  of: (players: Player[]) => {
+    calculateSquadAverage: () => number,
+    pickBest11: (tactic: Tactic) => Player[]
   }
+
+} = {
+  of(players: Player[]) {
+    return {
+      calculateSquadAverage(): number {
+        const totalQuality = players.reduce(
+          (total, player) => total + player.quality,
+          0
+        );
+        return totalQuality / players.length;
+      },
+      pickBest11(tactic: Tactic): Player[] {
+        const [defendersNumber, midfieldersNumber, attackersNumber] = tactic.split('-');
+
+        let eleven = [...getBestPlayers(players, 1).slice(0, 1)];
+        eleven = eleven.concat(getBestPlayers(players, 2).slice(0, Number(defendersNumber)));
+        eleven = eleven.concat(getBestPlayers(players, 3).slice(0, Number(midfieldersNumber)));
+        eleven = eleven.concat(getBestPlayers(players, 4).slice(0, Number(attackersNumber)));
+
+        return eleven;
+      }
+    }
+  },
 }
 
 export { Squad };

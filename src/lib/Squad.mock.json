@@ -1,0 +1,172 @@
+[
+  {
+    "id": "f7005db3-bef1-476f-9639-d8af98e10dd3",
+    "position": 1,
+    "name": "Sheldon Mante",
+    "age": 15,
+    "yearContractEnd": 2022,
+    "quality": 89,
+    "salaryInThousandEur": 520714,
+    "marketValueInThousandEur": 5624134
+  },
+  {
+    "id": "790f4620-79fd-440d-b728-390768d60700",
+    "position": 1,
+    "name": "Brett Treutel",
+    "age": 22,
+    "yearContractEnd": 2025,
+    "quality": 78,
+    "salaryInThousandEur": 2803,
+    "marketValueInThousandEur": 38251
+  },
+  {
+    "id": "8f8e7253-0842-44de-87ce-7b09612335e7",
+    "position": 2,
+    "name": "Brandon Wolff",
+    "age": 16,
+    "yearContractEnd": 2023,
+    "quality": 89,
+    "salaryInThousandEur": 14568,
+    "marketValueInThousandEur": 7885113
+  },
+  {
+    "id": "845981d2-c507-4dd7-a132-b23cb3ed0c7a",
+    "position": 2,
+    "name": "Brandon Pouros",
+    "age": 32,
+    "yearContractEnd": 2022,
+    "quality": 88,
+    "salaryInThousandEur": 577735,
+    "marketValueInThousandEur": 6973893
+  },
+  {
+    "id": "4c1c6338-b070-400c-bc74-5142a7535d50",
+    "position": 2,
+    "name": "Brendan Harber",
+    "age": 29,
+    "yearContractEnd": 2022,
+    "quality": 86,
+    "salaryInThousandEur": 475008,
+    "marketValueInThousandEur": 6964405
+  },
+  {
+    "id": "23631590-abd6-4c16-9af2-b50d0740a523",
+    "position": 2,
+    "name": "Jeffrey Jerde",
+    "age": 29,
+    "yearContractEnd": 2026,
+    "quality": 63,
+    "salaryInThousandEur": 7907,
+    "marketValueInThousandEur": 10010
+  },
+  {
+    "id": "9311f8f3-3344-4d07-b4f9-a4bd51bad9c8",
+    "position": 2,
+    "name": "Orlando DuBuque",
+    "age": 15,
+    "yearContractEnd": 2025,
+    "quality": 61,
+    "salaryInThousandEur": 915,
+    "marketValueInThousandEur": 9752
+  },
+  {
+    "id": "2ac10a93-2d6e-4d2d-a997-20b4c8ef2b70",
+    "position": 3,
+    "name": "Willie Reichert",
+    "age": 25,
+    "yearContractEnd": 2025,
+    "quality": 65,
+    "salaryInThousandEur": 1195,
+    "marketValueInThousandEur": 3722
+  },
+  {
+    "id": "ed54ac7a-104f-4b15-9c9e-b72ba096f8db",
+    "position": 3,
+    "name": "Leroy Zboncak",
+    "age": 31,
+    "yearContractEnd": 2022,
+    "quality": 78,
+    "salaryInThousandEur": 2299,
+    "marketValueInThousandEur": 82318
+  },
+  {
+    "id": "0c25d015-be30-4413-b865-57403653d399",
+    "position": 3,
+    "name": "Jeffrey Stark",
+    "age": 19,
+    "yearContractEnd": 2023,
+    "quality": 87,
+    "salaryInThousandEur": 773799,
+    "marketValueInThousandEur": 7850674
+  },
+  {
+    "id": "0aa68f65-1b51-415e-8b78-e8fb461282c5",
+    "position": 3,
+    "name": "Harvey Adams",
+    "age": 22,
+    "yearContractEnd": 2024,
+    "quality": 81,
+    "salaryInThousandEur": 438623,
+    "marketValueInThousandEur": 7892385
+  },
+  {
+    "id": "452251dc-3a1b-4e4a-9479-a366c8c1bcde",
+    "position": 3,
+    "name": "Ronald Schoen",
+    "age": 15,
+    "yearContractEnd": 2026,
+    "quality": 87,
+    "salaryInThousandEur": 879476,
+    "marketValueInThousandEur": 8579369
+  },
+  {
+    "id": "271fad3c-d8e1-442c-b196-f6ef43d8d4c8",
+    "position": 3,
+    "name": "Roland Rolfson",
+    "age": 30,
+    "yearContractEnd": 2026,
+    "quality": 84,
+    "salaryInThousandEur": 586891,
+    "marketValueInThousandEur": 174935
+  },
+  {
+    "id": "33d4149c-98a7-46a8-a94e-9937df9c957f",
+    "position": 4,
+    "name": "Ronald Frami",
+    "age": 30,
+    "yearContractEnd": 2025,
+    "quality": 74,
+    "salaryInThousandEur": 5630,
+    "marketValueInThousandEur": 64419
+  },
+  {
+    "id": "084b9628-e028-428f-944e-2e9124a0c9e7",
+    "position": 4,
+    "name": "Jamie Boyer",
+    "age": 32,
+    "yearContractEnd": 2022,
+    "quality": 76,
+    "salaryInThousandEur": 860,
+    "marketValueInThousandEur": 62801
+  },
+  {
+    "id": "08914810-aa30-4f97-a7e0-e0c21e874340",
+    "position": 4,
+    "name": "Marlon Weimann",
+    "age": 36,
+    "yearContractEnd": 2024,
+    "quality": 88,
+    "salaryInThousandEur": 852959,
+    "marketValueInThousandEur": 3211441
+  },
+  {
+    "id": "c96269b0-9a6c-409c-8a49-0246a02240f4",
+    "position": 4,
+    "name": "Joel Keebler",
+    "age": 17,
+    "yearContractEnd": 2025,
+    "quality": 89,
+    "salaryInThousandEur": 470698,
+    "marketValueInThousandEur": 5851137
+  }
+]

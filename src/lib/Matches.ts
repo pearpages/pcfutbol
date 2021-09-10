@@ -2,7 +2,7 @@ import { createMatches, Match } from "./createMatches";
 import { TeamName, teamNames } from "./createTeams";
 
 class Matches {
-  constructor(private matches = createMatches(teamNames)) {}
+  constructor(private matches = createMatches(Array.from(teamNames))) {}
 
   getTeamMatches(teamName: TeamName): Match[] {
     return this.matches.flatMap((round) =>
