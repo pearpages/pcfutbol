@@ -1,9 +1,24 @@
-import type { TeamData, MatchData } from "./models";
+import type { TeamData, MatchData, PlayerData } from "./models";
 import type { TeamName } from "./createTeams";
 import { Matches } from "./Matches";
-import { Squad } from "./Squad";
 import { Teams } from "./Teams";
 import { Team } from "./Team";
+import { Formation, getResult } from "./getResult";
+
+function formationAdapter(players: PlayerData[]): Formation {
+  return {
+    goalie: players.filter((player) => player.position === 1)[0].quality,
+    defenders: players
+      .filter((player) => player.position === 2)
+      .map((player) => player.quality),
+    midfielders: players
+      .filter((player) => player.position === 3)
+      .map((player) => player.quality),
+    attackers: players
+      .filter((player) => player.position === 4)
+      .map((player) => player.quality),
+  };
+}
 
 class Game {
   teams: Teams;
@@ -31,19 +46,26 @@ class Game {
       const awayTeam = this.teams.getTeam(match[1]);
       const awayFormation = Team.of(awayTeam).pickFormation();
 
-      const qualityHome = Squad.of(homeFormation).calculateSquadAverage();
-      const qualityAway = Squad.of(awayFormation).calculateSquadAverage();
+      const { score } = getResult(
+        formationAdapter(homeFormation),
+        formationAdapter(awayFormation)
+      );
 
       homeTeam!.games++;
       awayTeam!.games++;
-      if (qualityHome > qualityAway) {
+      if (score[0] > score[1]) {
         homeTeam!.points = homeTeam!.points + 3;
         homeTeam!.lastResult = "WON";
         awayTeam!.lastResult = "LOST";
-      } else {
+      } else if (score[0] < score[1]) {
         awayTeam!.points = awayTeam!.points + 3;
         awayTeam!.lastResult = "WON";
         homeTeam!.lastResult = "LOST";
+      } else {
+        homeTeam!.points = homeTeam!.points + 1;
+        awayTeam!.points = awayTeam!.points + 1;
+        awayTeam!.lastResult = "DRAW";
+        homeTeam!.lastResult = "DRAW";
       }
     });
   }

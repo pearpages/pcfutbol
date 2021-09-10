@@ -31,13 +31,14 @@ export function CurrentMatch({
 
   return (
     <>
-      <div style={{ display: "inline-block" }}>
+      <div>
+        <h4>{currentMatch[0] + " " + currentMatch[1]}</h4>
         <Eleven
           description={getDescription(game.getPlayerTeam(), playersOfTheGame)}
           players={playersOfTheGame.get()}
         />
       </div>
-      <div style={{ display: "inline-block" }}>
+      <div>
         <Eleven
           description={getDescription(rivalTeam.get(), rivalPlayersOfTheGame)}
           players={rivalPlayersOfTheGame.get()}

@@ -19,16 +19,18 @@ function App() {
   };
 
   const nextGame = () => {
-    setJornada(jornada + 1);
+    if (jornada === 37) {
+      setJornada(0);
+    } else {
+      setJornada(jornada + 1);
+    }
     setScreen("PREMATCH");
   };
 
   return (
     <div className="App">
-      <div>CALENDAR</div>
-      <div>TEAM MANAGEMENT</div>
-      <div style={{ display: "inline-block" }}>
-        <CurrentMatch game={game} jornadaNumber={jornada} />
+      <h4>
+        Jornada: {jornada + 1}{" "}
         {screen === "PREMATCH" ? (
           <>
             <br />
@@ -41,7 +43,10 @@ function App() {
             <button onClick={nextGame}>NEXT</button>
           </div>
         )}
-      </div>
+      </h4>
+      <div>CALENDAR</div>
+      <div>TEAM MANAGEMENT</div>
+      <CurrentMatch game={game} jornadaNumber={jornada} />
       <Classification teams={game.teams.getAll()} />
     </div>
   );
