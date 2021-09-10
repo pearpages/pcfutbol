@@ -1,6 +1,52 @@
-import type { TeamName, TeamQuality } from "./createSquad";
 import { createSquad } from "./createSquad";
 import { Player } from "./models";
+
+type TeamQuality = "MEDIOCRE" | "POOR" | "OKAY" | "AVERAGE" | "GOOD" | "TOP";
+
+type TeamName =
+  | "Real Madrid"
+  | "Sevilla"
+  | "Valencia"
+  | "Barcelona"
+  | "Atlético"
+  | "Mallorca"
+  | "R. Sociedad"
+  | "Osasuna"
+  | "Athletic"
+  | "Rayo"
+  | "Villarreal"
+  | "Cádiz"
+  | "Levante"
+  | "Betis"
+  | "Elche"
+  | "Espanyol"
+  | "Granada"
+  | "Celta"
+  | "Getafe"
+  | "Alavés";
+
+const teamNames: TeamName[] = [
+  "Real Madrid",
+  "Sevilla",
+  "Valencia",
+  "Barcelona",
+  "Atlético",
+  "Mallorca",
+  "R. Sociedad",
+  "Osasuna",
+  "Athletic",
+  "Rayo",
+  "Villarreal",
+  "Cádiz",
+  "Levante",
+  "Betis",
+  "Elche",
+  "Espanyol",
+  "Granada",
+  "Celta",
+  "Getafe",
+  "Alavés",
+];
 
 type Team = {
   name: TeamName;
@@ -34,9 +80,9 @@ const teams: Team[] = [
   { name: "Alavés", quality: "POOR", players: [], games: 0, points: 0, lastResult: 'BETWEEN_SEASONS' },
 ];
 
-function createSquads(): Team[] {
+function createTeams(): Team[] {
   return teams.map((team) => ({ ...team, players: createSquad(team.quality) }));
 }
 
-export { createSquads, teams };
-export type { Team };
+export { createTeams, teams, teamNames };
+export type { Team, TeamName, TeamQuality };

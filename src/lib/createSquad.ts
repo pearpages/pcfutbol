@@ -1,54 +1,13 @@
 import type { PlayerQualityRange, Player, Position } from "./models";
 import type { RandomValue } from "./utils";
+import type { TeamQuality } from './createTeams';
 import { generateRandomNumber, makeRandomValue, getRandomIndex } from "./utils";
 import { createPlayer, getQualityRangeValues } from "./createPlayer";
 
-type TeamQuality = "MEDIOCRE" | "POOR" | "OKAY" | "AVERAGE" | "GOOD" | "TOP";
-
-type TeamName =
-  | "Real Madrid"
-  | "Sevilla"
-  | "Valencia"
-  | "Barcelona"
-  | "Atlético"
-  | "Mallorca"
-  | "R. Sociedad"
-  | "Osasuna"
-  | "Athletic"
-  | "Rayo"
-  | "Villarreal"
-  | "Cádiz"
-  | "Levante"
-  | "Betis"
-  | "Elche"
-  | "Espanyol"
-  | "Granada"
-  | "Celta"
-  | "Getafe"
-  | "Alavés";
-
-const teamNames: TeamName[] = [
-  "Real Madrid",
-  "Sevilla",
-  "Valencia",
-  "Barcelona",
-  "Atlético",
-  "Mallorca",
-  "R. Sociedad",
-  "Osasuna",
-  "Athletic",
-  "Rayo",
-  "Villarreal",
-  "Cádiz",
-  "Levante",
-  "Betis",
-  "Elche",
-  "Espanyol",
-  "Granada",
-  "Celta",
-  "Getafe",
-  "Alavés",
-];
+type TeamRandomness = {
+  base: PlayerQualityRange;
+  some: Array<{ quality: PlayerQualityRange; total: number }>;
+};
 
 const getQualityRandomness = function (
   teamQuality: TeamQuality
@@ -119,11 +78,6 @@ function generatePlayersByPosition(
   return players;
 }
 
-type TeamRandomness = {
-  base: PlayerQualityRange;
-  some: Array<{ quality: PlayerQualityRange; total: number }>;
-};
-
 function generateRandomPlayers(teamQuality: TeamQuality): Player[] {
   const qualityRandomness = getQualityRandomness(teamQuality);
 
@@ -173,5 +127,4 @@ function createSquad(teamQuality: TeamQuality): Player[] {
   return generateRandomPlayers(teamQuality);
 }
 
-export { createSquad, teamNames };
-export type { TeamName, TeamQuality };
+export { createSquad };

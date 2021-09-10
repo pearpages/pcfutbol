@@ -1,4 +1,4 @@
-import type { TeamName } from "./createSquad";
+import type { TeamName } from "./createTeams";
 
 type Match = [TeamName, TeamName];
 type Jornada = Match[];

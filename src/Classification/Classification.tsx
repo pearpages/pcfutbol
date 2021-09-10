@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Team } from "../lib/createSquads";
+import { Team } from "../lib/createTeams";
 
 export function Classification({ teams: originalTeams }: { teams: Team[] }) {
   const teams = originalTeams.slice().sort((a, b) => b.points - a.points);

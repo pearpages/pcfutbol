@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { createSquads } from "./lib/createSquads";
-import { createMatches, Match } from "./lib/createMatches";
-import { TeamName, teamNames } from "./lib/createSquad";
-import { Player } from "./lib/models";
+import { createTeams } from "./lib/createTeams";
+import type { Match } from "./lib/createMatches";
+import { createMatches } from "./lib/createMatches";
+import type { TeamName } from "./lib/createTeams";
+import { teamNames } from "./lib/createTeams";
+import type { Player } from "./lib/models";
 import { Classification } from './Classification';
 
 import "./App.css";
 
-const teams = createSquads();
+const teams = createTeams();
 const matches = createMatches(teamNames);
 
 function getTeam(teamName: TeamName) {
@@ -40,7 +42,7 @@ function playJornada(jornadaNumber: number) {
 
     const qualityHome = calculateSquadAverage(homeTeam!.players)
     const qualityAway = calculateSquadAverage(awayTeam!.players)
-    
+
     homeTeam!.games++;
     awayTeam!.games++;
     if (qualityHome > qualityAway) {
