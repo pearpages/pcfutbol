@@ -1,4 +1,4 @@
-import { Player } from './models';
+import { Player } from "./models";
 import { createTeams, Team, TeamName } from "./createTeams";
 
 class Teams {

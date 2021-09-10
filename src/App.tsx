@@ -1,21 +1,17 @@
 import React, { useState } from "react";
-import { Match } from './lib/Match';
-import { Squad } from './lib/Squad';
 import { Game } from "./lib/Game";
-import { Classification } from './Classification';
+import { Classification } from "./Classification";
+import { CurrentMatch } from "./CurrentMatch";
 
 import "./App.css";
 
-const game = new Game({playerTeam: 'Barcelona'});
+const game = new Game({ playerTeam: "Barcelona" });
 
 type Screen = "RESULT" | "PREMATCH";
 
 function App() {
   const [jornada, setJornada] = useState(0);
   const [screen, setScreen] = useState<Screen>("PREMATCH");
-
-  const currentMatch = game.getPlayerMatch(jornada);
-  const rivalName = Match.of(currentMatch).getRival(game.getPlayerTeam().name);
 
   const playGame = () => {
     game.playJornada(jornada);
@@ -24,35 +20,29 @@ function App() {
 
   const nextGame = () => {
     setJornada(jornada + 1);
-    setScreen('PREMATCH');
-  }
+    setScreen("PREMATCH");
+  };
 
   return (
     <div className="App">
       <div>CALENDAR</div>
-      <div>
-        <Classification teams={game.teams.getAll()} />
-      </div>
       <div>TEAM MANAGEMENT</div>
-      <div>
-        <div>
-          Current match: <strong>{currentMatch.join(" ")}</strong>
-        </div>
-        <div>
-          <div>Barca: {Squad.of(game.getPlayerTeam().players).calculateSquadAverage()}</div>
-          <div>
-            {rivalName}: {Squad.of(game.teams.getSquad(rivalName)).calculateSquadAverage()}
-          </div>
-        </div>
+      <div style={{ display: "inline-block" }}>
+        <CurrentMatch game={game} jornadaNumber={jornada} />
         {screen === "PREMATCH" ? (
-          <button onClick={playGame}>Play Game</button>
+          <>
+            <br />
+            <button onClick={playGame}>Play Game</button>
+          </>
         ) : (
           <div>
             RESULT: {game.getPlayerTeam().lastResult}
-            <br/><button onClick={nextGame}>NEXT</button>
+            <br />
+            <button onClick={nextGame}>NEXT</button>
           </div>
         )}
       </div>
+      <Classification teams={game.teams.getAll()} />
     </div>
   );
 }

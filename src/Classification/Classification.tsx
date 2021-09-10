@@ -6,7 +6,7 @@ export function Classification({ teams: originalTeams }: { teams: Team[] }) {
   const teams = originalTeams.slice().sort((a, b) => b.points - a.points);
 
   return (
-    <div>
+    <div style={{ display: "inline-block" }}>
       <h4>Classification</h4>
       <table>
         <thead>

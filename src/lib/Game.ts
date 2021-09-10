@@ -1,14 +1,23 @@
 import type { Match } from "./createMatches";
-import type { Team, TeamName } from "./createTeams";
+import type { Team as TeamType, TeamName } from "./createTeams";
 import { Matches } from "./Matches";
 import { Squad } from "./Squad";
 import { Teams } from "./Teams";
+import { Team } from "./Team";
 
 class Game {
   teams: Teams;
   matches: Matches;
   playerTeam: TeamName;
-  constructor({teams, matches, playerTeam}: {teams?: Teams, matches?: Matches, playerTeam: TeamName}) {
+  constructor({
+    teams,
+    matches,
+    playerTeam,
+  }: {
+    teams?: Teams;
+    matches?: Matches;
+    playerTeam: TeamName;
+  }) {
     this.teams = teams || new Teams();
     this.matches = matches || new Matches();
     this.playerTeam = playerTeam;
@@ -16,33 +25,35 @@ class Game {
 
   playJornada(jornadaNumber: number) {
     const jornada = this.matches.getJornada(jornadaNumber);
-    jornada.forEach(match => {
+    jornada.forEach((match) => {
       const homeTeam = this.teams.getTeam(match[0]);
+      const homeFormation = Team.of(homeTeam).pickFormation();
       const awayTeam = this.teams.getTeam(match[1]);
+      const awayFormation = Team.of(awayTeam).pickFormation();
 
-      const qualityHome = Squad.of(homeTeam!.players).calculateSquadAverage();
-      const qualityAway = Squad.of(awayTeam!.players).calculateSquadAverage();
+      const qualityHome = Squad.of(homeFormation).calculateSquadAverage();
+      const qualityAway = Squad.of(awayFormation).calculateSquadAverage();
 
       homeTeam!.games++;
       awayTeam!.games++;
       if (qualityHome > qualityAway) {
         homeTeam!.points = homeTeam!.points + 3;
-        homeTeam!.lastResult = 'WON';
-        awayTeam!.lastResult = 'LOST';
+        homeTeam!.lastResult = "WON";
+        awayTeam!.lastResult = "LOST";
       } else {
         awayTeam!.points = awayTeam!.points + 3;
-        awayTeam!.lastResult = 'WON';
-        homeTeam!.lastResult = 'LOST';
+        awayTeam!.lastResult = "WON";
+        homeTeam!.lastResult = "LOST";
       }
-    })
+    });
   }
 
-  getPlayerTeam(): Team {
-    return this.teams.getTeam('Barcelona');
+  getPlayerTeam(): TeamType {
+    return this.teams.getTeam(this.playerTeam);
   }
 
   getPlayerMatches(): Match[] {
-    return this.matches.getTeamMatches("Barcelona");
+    return this.matches.getTeamMatches(this.playerTeam);
   }
 
   getPlayerMatch(jornada: number): Match {
