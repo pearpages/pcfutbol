@@ -34,10 +34,8 @@ function Dashboard({
           </div>
         )}
       </h4>
-      <div>CALENDAR</div>
-      <div>TEAM MANAGEMENT</div>
-      <CurrentMatch game={game} jornadaNumber={jornada} />
-      <Classification teams={game.teams.getAll()} />
+      {/* <CurrentMatch game={game} jornadaNumber={jornada} /> */}
+      {/* <Classification teams={game.teams.getAll()} /> */}
     </div>
   );
 }

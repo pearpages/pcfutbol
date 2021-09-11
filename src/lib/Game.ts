@@ -20,6 +20,46 @@ function formationAdapter(players: PlayerData[]): Formation {
   };
 }
 
+function playJornada({
+  jornadaNumber,
+  matches,
+  teams,
+}: {
+  jornadaNumber: number;
+  matches: Matches;
+  teams: Teams;
+}) {
+  const jornada = matches.getJornada(jornadaNumber);
+  jornada.forEach((match) => {
+    const homeTeam = teams.getTeam(match[0]);
+    const homeFormation = Team.of(homeTeam).pickFormation();
+    const awayTeam = teams.getTeam(match[1]);
+    const awayFormation = Team.of(awayTeam).pickFormation();
+
+    const { score } = getResult(
+      formationAdapter(homeFormation),
+      formationAdapter(awayFormation)
+    );
+
+    homeTeam!.games++;
+    awayTeam!.games++;
+    if (score[0] > score[1]) {
+      homeTeam!.points = homeTeam!.points + 3;
+      homeTeam!.lastResult = "WON";
+      awayTeam!.lastResult = "LOST";
+    } else if (score[0] < score[1]) {
+      awayTeam!.points = awayTeam!.points + 3;
+      awayTeam!.lastResult = "WON";
+      homeTeam!.lastResult = "LOST";
+    } else {
+      homeTeam!.points = homeTeam!.points + 1;
+      awayTeam!.points = awayTeam!.points + 1;
+      awayTeam!.lastResult = "DRAW";
+      homeTeam!.lastResult = "DRAW";
+    }
+  });
+}
+
 class Game {
   teams: Teams;
   matches: Matches;
@@ -38,35 +78,11 @@ class Game {
     this.playerTeam = playerTeam;
   }
 
-  playJornada(jornadaNumber: number) {
-    const jornada = this.matches.getJornada(jornadaNumber);
-    jornada.forEach((match) => {
-      const homeTeam = this.teams.getTeam(match[0]);
-      const homeFormation = Team.of(homeTeam).pickFormation();
-      const awayTeam = this.teams.getTeam(match[1]);
-      const awayFormation = Team.of(awayTeam).pickFormation();
-
-      const { score } = getResult(
-        formationAdapter(homeFormation),
-        formationAdapter(awayFormation)
-      );
-
-      homeTeam!.games++;
-      awayTeam!.games++;
-      if (score[0] > score[1]) {
-        homeTeam!.points = homeTeam!.points + 3;
-        homeTeam!.lastResult = "WON";
-        awayTeam!.lastResult = "LOST";
-      } else if (score[0] < score[1]) {
-        awayTeam!.points = awayTeam!.points + 3;
-        awayTeam!.lastResult = "WON";
-        homeTeam!.lastResult = "LOST";
-      } else {
-        homeTeam!.points = homeTeam!.points + 1;
-        awayTeam!.points = awayTeam!.points + 1;
-        awayTeam!.lastResult = "DRAW";
-        homeTeam!.lastResult = "DRAW";
-      }
+  playJornada(jornadaNumber: number): void {
+    playJornada({
+      jornadaNumber,
+      teams: this.teams,
+      matches: this.matches,
     });
   }
 
