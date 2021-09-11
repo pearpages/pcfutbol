@@ -7,6 +7,7 @@ This project is intended to be a simple football manager with incremental featur
 - uuid
 - faker
 - material-ui
+- random-avatar-generator
 - react-router-dom
 
 ## Resources

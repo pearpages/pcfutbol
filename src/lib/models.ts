@@ -14,6 +14,7 @@ interface PlayerData {
   yearContractEnd: number;
   salaryInThousandEur: number;
   marketValueInThousandEur: number;
+  avatar: string;
 }
 
 type PlayerQualityRange = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;

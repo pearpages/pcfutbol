@@ -1,8 +1,11 @@
 import { name as fakeName } from "faker";
 import { v4 as uuidv4 } from "uuid";
+import { AvatarGenerator } from "random-avatar-generator";
 
 import type { PlayerData, Position, PlayerQualityRange } from "./models";
 import { generateRandomNumber, makeRandomValue } from "./utils";
+
+const generator = new AvatarGenerator();
 
 type QualityValues = {
   quality: number;
@@ -137,8 +140,10 @@ function createPlayer({
   currentYear: number;
 }): PlayerData {
   const MALE = 0;
+  const id = uuidv4();
   return {
-    id: uuidv4(),
+    id,
+    avatar: generator.generateRandomAvatar(id),
     position,
     name: `${fakeName.firstName(MALE)} ${fakeName.lastName()}`,
     age: 15 + Math.floor(Math.random() * 22),
