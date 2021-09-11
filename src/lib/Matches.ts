@@ -7,7 +7,7 @@ const Matches = {
     return {
       getTeamMatches(teamName: TeamName): MatchData[] {
         return matches.flatMap((round) =>
-          round.filter((teams) => teams.includes(teamName))
+          round.filter((match) => match.teams.includes(teamName))
         );
       },
       getJornada(number: number): MatchData[] {

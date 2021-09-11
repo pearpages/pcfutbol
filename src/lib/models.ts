@@ -1,6 +1,6 @@
 import type { TeamName } from "./createTeams";
 
-type MatchData = [TeamName, TeamName];
+type MatchData = { teams: [TeamName, TeamName]; result?: ResultData };
 
 type JornadaData = MatchData[];
 

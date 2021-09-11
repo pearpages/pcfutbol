@@ -31,15 +31,16 @@ function playJornada({
 }) {
   const jornada = matches.getJornada(jornadaNumber);
   jornada.forEach((match) => {
-    const homeTeam = teams.getTeam(match[0]);
+    const homeTeam = teams.getTeam(match.teams[0]);
     const homeFormation = Team.of(homeTeam).pickFormation();
-    const awayTeam = teams.getTeam(match[1]);
+    const awayTeam = teams.getTeam(match.teams[1]);
     const awayFormation = Team.of(awayTeam).pickFormation();
 
-    const { score } = getResult(
+    match.result = getResult(
       formationAdapter(homeFormation),
       formationAdapter(awayFormation)
     );
+    const score = match.result.score;
 
     homeTeam!.games++;
     awayTeam!.games++;
