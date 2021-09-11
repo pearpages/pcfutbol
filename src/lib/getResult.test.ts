@@ -1,5 +1,5 @@
 import { getResult } from "./getResult";
-import type { Formation } from "./getResult";
+import type { Formation } from "./models";
 
 const local: Formation = {
   goalie: 64,

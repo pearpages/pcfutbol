@@ -1,9 +1,9 @@
-import type { TeamData, MatchData, PlayerData } from "./models";
+import type { TeamData, MatchData, PlayerData, Formation } from "./models";
 import type { TeamName } from "./createTeams";
 import { Matches } from "./Matches";
 import { Teams } from "./Teams";
 import { Team } from "./Team";
-import { Formation, getResult } from "./getResult";
+import { getResult } from "./getResult";
 
 function formationAdapter(players: PlayerData[]): Formation {
   return {
@@ -26,7 +26,7 @@ function playJornada({
   teams,
 }: {
   jornadaNumber: number;
-  matches: Matches;
+  matches: ReturnType<typeof Matches.of>;
   teams: Teams;
 }) {
   const jornada = matches.getJornada(jornadaNumber);
@@ -62,7 +62,7 @@ function playJornada({
 
 class Game {
   teams: Teams;
-  matches: Matches;
+  matches: ReturnType<typeof Matches.of>;
   playerTeam: TeamName;
   constructor({
     teams,
@@ -70,11 +70,11 @@ class Game {
     playerTeam,
   }: {
     teams?: Teams;
-    matches?: Matches;
+    matches?: ReturnType<typeof Matches.of>;
     playerTeam: TeamName;
   }) {
     this.teams = teams || new Teams();
-    this.matches = matches || new Matches();
+    this.matches = matches || Matches.of();
     this.playerTeam = playerTeam;
   }
 

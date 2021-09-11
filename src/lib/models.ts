@@ -43,6 +43,25 @@ type TeamData = {
   tactic: Tactic;
 };
 
+type Formation = {
+  goalie: number;
+  defenders: number[];
+  midfielders: number[];
+  attackers: number[];
+};
+
+type Stats = {
+  posessionPercentage: { local: number; away: number };
+  attacks: { local: number; away: number };
+};
+
+type ResultData = {
+  averages: { local: number; away: number };
+  score: [number, number];
+  messages: string[];
+  stats: Stats;
+};
+
 export type {
   TeamData,
   MatchData,
@@ -52,4 +71,7 @@ export type {
   PlayerQualityRange,
   TeamQuality,
   Tactic,
+  Formation,
+  ResultData,
+  Stats,
 };

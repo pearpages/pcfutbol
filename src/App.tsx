@@ -41,6 +41,9 @@ function App() {
   return (
     <Switch>
       {getDemos()}
+      <Route path="/dashboard">
+        <Dashboard {...dashboardProps} />
+      </Route>
       <Route path="*">
         <Dashboard {...dashboardProps} />
       </Route>

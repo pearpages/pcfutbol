@@ -1,20 +1,11 @@
-type Formation = {
-  goalie: number;
-  defenders: number[];
-  midfielders: number[];
-  attackers: number[];
-};
+import type { Formation, ResultData, Stats } from "./models";
 
 type Team = "LOCAL" | "AWAY";
+
 type Chance = {
   score: { winner: number; loser: number };
   winner: Team;
   loser: Team;
-};
-
-type Stats = {
-  posessionPercentage: { local: number; away: number };
-  attacks: { local: number; away: number };
 };
 
 const hasGoalieStopped = (goalie: number) =>
@@ -103,15 +94,7 @@ function dealWithSituation({
   messages.push("---");
 }
 
-function getResult(
-  local: Formation,
-  away: Formation
-): {
-  averages: { local: number; away: number };
-  score: [number, number];
-  messages: string[];
-  stats: Stats;
-} {
+function getResult(local: Formation, away: Formation): ResultData {
   const localsMidQuality = getTotalQuality(local.midfielders);
   const awayMidQuality = getTotalQuality(away.midfielders);
   const score: [number, number] = [0, 0];
@@ -167,4 +150,4 @@ function getResult(
 }
 
 export { getResult };
-export type { Formation };
+export type { Formation, ResultData };

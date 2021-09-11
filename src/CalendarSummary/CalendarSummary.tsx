@@ -13,7 +13,7 @@ type Result = {
   jornada: number;
   rival: TeamName;
   stadium: "HOME" | "AWAY";
-  score: [number, number];
+  score?: [number, number];
 };
 
 function CalendarSummary({ results }: { results: Result[] }) {
@@ -22,16 +22,16 @@ function CalendarSummary({ results }: { results: Result[] }) {
       <TableContainer component={Paper}>
         <Table size={"small"} aria-label="simple table">
           <TableBody>
-            {results.map((result) => (
-              <TableRow key={result.jornada}>
-                <TableCell align="right">{result.jornada}</TableCell>
+            {results.map(({ jornada, rival, stadium, score }) => (
+              <TableRow key={jornada}>
+                <TableCell align="right">{jornada}</TableCell>
                 <TableCell align="left">
-                  <Badge teamName={result.rival} /> {result.rival}
+                  <Badge teamName={rival} /> {rival}
                 </TableCell>
+                <TableCell align="right">{stadium.slice(0, 1)}</TableCell>
                 <TableCell align="right">
-                  {result.stadium.slice(0, 1)}
+                  {score ? score.join("-") : "LL"}
                 </TableCell>
-                <TableCell align="right">{result.score.join("-")}</TableCell>
               </TableRow>
             ))}
           </TableBody>
