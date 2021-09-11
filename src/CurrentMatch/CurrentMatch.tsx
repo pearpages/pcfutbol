@@ -32,7 +32,7 @@ export function CurrentMatch({
   return (
     <>
       <div>
-        <h4>{currentMatch[0] + " " + currentMatch[1]}</h4>
+        <h4>{currentMatch.teams[0] + " " + currentMatch.teams[1]}</h4>
         <Eleven players={playersOfTheGame.get()} />
       </div>
       <div>

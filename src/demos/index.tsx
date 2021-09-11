@@ -8,16 +8,16 @@ import DemoBoardSummary from "../BoardSummary/BoardSummary.demo";
 
 function getDemos() {
   return [
-    <Route path="/demo/eleven">
+    <Route key="1" path="/demo/eleven">
       <DemoEleven />
     </Route>,
-    <Route path="/demo/badges">
+    <Route key="2" path="/demo/badges">
       <DemoBadges />
     </Route>,
-    <Route path="/demo/calendar-summary">
+    <Route key="3" path="/demo/calendar-summary">
       <DemoCalendarSummary />
     </Route>,
-    <Route path="/demo/board-summary">
+    <Route key="4" path="/demo/board-summary">
       <DemoBoardSummary />
     </Route>,
   ];

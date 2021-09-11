@@ -1,10 +1,17 @@
 import { createMatches } from "./createMatches";
 import { TeamName, teamNames } from "./createTeams";
-import { MatchData } from "./models";
+import { JornadaData, MatchData } from "./models";
 
 const Matches = {
-  of(matches = createMatches(Array.from(teamNames))) {
+  of(
+    matches = createMatches(Array.from(teamNames)).map((jornada) =>
+      jornada.map((match) => ({ teams: match }))
+    )
+  ) {
     return {
+      get(): JornadaData[] {
+        return matches;
+      },
       getTeamMatches(teamName: TeamName): MatchData[] {
         return matches.flatMap((round) =>
           round.filter((match) => match.teams.includes(teamName))

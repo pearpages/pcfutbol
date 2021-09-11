@@ -1,7 +1,6 @@
 import type { TeamName } from "./createTeams";
-import type { JornadaData } from "./models";
 
-function createMatches(teams: TeamName[]): JornadaData[] {
+function createMatches(teams: TeamName[]): [TeamName, TeamName][][] {
   const n = teams.length;
   const totalMatches = (n - 1) * 2;
   const rs = new Array(totalMatches); // rs = round array
