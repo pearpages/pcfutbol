@@ -19,21 +19,17 @@ function Dashboard({
 }) {
   return (
     <div className="App">
-      <h4>
-        Jornada: {jornada + 1}{" "}
-        {screen === "PREMATCH" ? (
-          <>
-            <br />
-            <button onClick={playGame}>Play Game</button>
-          </>
-        ) : (
-          <div>
-            RESULT: {game.getPlayerTeam().lastResult}
-            <br />
-            <button onClick={nextGame}>NEXT</button>
-          </div>
-        )}
-      </h4>
+      <div>Jornada: {jornada + 1}</div>
+      {screen === "PREMATCH" ? (
+        <button onClick={playGame}>Play Game</button>
+      ) : (
+        <div>
+          <button onClick={nextGame}>NEXT</button>
+        </div>
+      )}
+      {screen === "RESULT" ? (
+        <div>{game.getPlayerTeam().lastResult}</div>
+      ) : null}
       {/* <CurrentMatch game={game} jornadaNumber={jornada} /> */}
       {/* <Classification teams={game.teams.getAll()} /> */}
     </div>

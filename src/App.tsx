@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router";
 
-import DemoEleven from "./CurrentMatch/Eleven/Eleven.demo";
-import DemoBadges from "./Badge/Badge.demo";
-import DemoCalendarSummary from "./CalendarSummary/CalendarSummary.demo";
+import { getDemos } from "./demos";
 import { Game } from "./lib/Game";
 import { Dashboard } from "./Dashboard";
 
@@ -42,15 +40,7 @@ function App() {
 
   return (
     <Switch>
-      <Route path="/demo/eleven">
-        <DemoEleven />
-      </Route>
-      <Route path="/demo/badges">
-        <DemoBadges />
-      </Route>
-      <Route path="/demo/calendar-summary">
-        <DemoCalendarSummary />
-      </Route>
+      {getDemos()}
       <Route path="*">
         <Dashboard {...dashboardProps} />
       </Route>
