@@ -1,11 +1,13 @@
 # PCFUTOBOL
 
 This project is intended to be a simple football manager with incremental features.
+
 ## Dependencies
 
 - uuid
 - faker
 - material-ui
+- react-router-dom
 
 ## Resources
 
@@ -14,6 +16,7 @@ This project is intended to be a simple football manager with incremental featur
 - [Redux-toolkit](https://redux-toolkit.js.org/)
 - [React-redux](https://react-redux.js.org/)
 - [Material UI](https://material-ui.com/)
+- [React Router](https://reactrouter.com/web/guides/quick-start)
 
 ## create-react-app
 
