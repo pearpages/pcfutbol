@@ -49,7 +49,14 @@ function badgeMapper(teamName: TeamName): string {
 }
 
 function Badge({ teamName }: { teamName: TeamName }) {
-  return <img src={badgeMapper(teamName)} alt={teamName} title={teamName} />;
+  return (
+    <img
+      width="15px"
+      src={badgeMapper(teamName)}
+      alt={teamName}
+      title={teamName}
+    />
+  );
 }
 
 export { Badge };

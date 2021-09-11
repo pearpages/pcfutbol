@@ -4,6 +4,7 @@ import { Route } from "react-router";
 
 import DemoEleven from "./CurrentMatch/Eleven/Eleven.demo";
 import DemoBadges from "./Badge/Badge.demo";
+import DemoCalendarSummary from "./CalendarSummary/CalendarSummary.demo";
 import { Game } from "./lib/Game";
 import { Dashboard } from "./Dashboard";
 
@@ -46,6 +47,9 @@ function App() {
       </Route>
       <Route path="/demo/badges">
         <DemoBadges />
+      </Route>
+      <Route path="/demo/calendar-summary">
+        <DemoCalendarSummary />
       </Route>
       <Route path="*">
         <Dashboard {...dashboardProps} />
