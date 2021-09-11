@@ -33,16 +33,10 @@ export function CurrentMatch({
     <>
       <div>
         <h4>{currentMatch[0] + " " + currentMatch[1]}</h4>
-        <Eleven
-          description={getDescription(game.getPlayerTeam(), playersOfTheGame)}
-          players={playersOfTheGame.get()}
-        />
+        <Eleven players={playersOfTheGame.get()} />
       </div>
       <div>
-        <Eleven
-          description={getDescription(rivalTeam.get(), rivalPlayersOfTheGame)}
-          players={rivalPlayersOfTheGame.get()}
-        />
+        <Eleven players={rivalPlayersOfTheGame.get()} />
       </div>
     </>
   );

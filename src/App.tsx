@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router";
 
-import DemoFormationTable from "./Demo/FormationTable/FormationTable";
+import DemoEleven from "./CurrentMatch/Eleven/Eleven.demo";
 import { Game } from "./lib/Game";
 import { Dashboard } from "./Dashboard";
 
@@ -40,8 +40,8 @@ function App() {
 
   return (
     <Switch>
-      <Route path="/demo/formation-table">
-        <DemoFormationTable />
+      <Route path="/demo/eleven">
+        <DemoEleven />
       </Route>
       <Route path="*">
         <Dashboard {...dashboardProps} />

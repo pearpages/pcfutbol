@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1294a71b-6a47-4fef-93b8-1e0dcf2f30e9",
+    "position": 1,
+    "name": "Ernesto Kassulke",
+    "age": 35,
+    "yearContractEnd": 2024,
+    "quality": 88,
+    "salaryInThousandEur": 820097,
+    "marketValueInThousandEur": 5344719
+  },
+  {
+    "id": "add10a5f-df0c-4777-8f47-2cc582f6eb86",
+    "position": 2,
+    "name": "Bob Hilll",
+    "age": 27,
+    "yearContractEnd": 2023,
+    "quality": 89,
+    "salaryInThousandEur": 418942,
+    "marketValueInThousandEur": 4174403
+  },
+  {
+    "id": "c6c5a359-6bb1-4bf7-9683-8837cfb2e7a0",
+    "position": 2,
+    "name": "Billy Mayer",
+    "age": 20,
+    "yearContractEnd": 2025,
+    "quality": 89,
+    "salaryInThousandEur": 744853,
+    "marketValueInThousandEur": 5419880
+  },
+  {
+    "id": "f29f8107-e599-4a6c-a0fb-b1c76acdd811",
+    "position": 2,
+    "name": "Clifford Streich",
+    "age": 24,
+    "yearContractEnd": 2026,
+    "quality": 83,
+    "salaryInThousandEur": 874209,
+    "marketValueInThousandEur": 4770439
+  },
+  {
+    "id": "a3723482-e07a-4deb-a17a-7a020d6d4df1",
+    "position": 2,
+    "name": "Wilbur Armstrong",
+    "age": 20,
+    "yearContractEnd": 2023,
+    "quality": 81,
+    "salaryInThousandEur": 23747,
+    "marketValueInThousandEur": 6926338
+  },
+  {
+    "id": "10697ad6-54fc-41c2-9dad-bc10c4fe9018",
+    "position": 3,
+    "name": "Anthony Heidenreich",
+    "age": 30,
+    "yearContractEnd": 2025,
+    "quality": 94,
+    "salaryInThousandEur": 528144,
+    "marketValueInThousandEur": 4434132
+  },
+  {
+    "id": "bc59d4e1-1165-4d03-a8ed-ace16dd2438c",
+    "position": 3,
+    "name": "Ralph Lehner",
+    "age": 33,
+    "yearContractEnd": 2023,
+    "quality": 88,
+    "salaryInThousandEur": 811788,
+    "marketValueInThousandEur": 5370680
+  },
+  {
+    "id": "bb3243b9-c18e-4e40-9e71-8c764a6e8d40",
+    "position": 3,
+    "name": "Albert Gleason",
+    "age": 28,
+    "yearContractEnd": 2023,
+    "quality": 88,
+    "salaryInThousandEur": 447943,
+    "marketValueInThousandEur": 8530468
+  },
+  {
+    "id": "c89cb00c-78b9-4677-a094-42a9fe41b15b",
+    "position": 3,
+    "name": "Andres Zulauf",
+    "age": 31,
+    "yearContractEnd": 2025,
+    "quality": 82,
+    "salaryInThousandEur": 735861,
+    "marketValueInThousandEur": 3378359
+  },
+  {
+    "id": "89f6c4df-8fe6-4fdb-9bec-e8e757036b7e",
+    "position": 4,
+    "name": "Santos Kling",
+    "age": 28,
+    "yearContractEnd": 2023,
+    "quality": 95,
+    "salaryInThousandEur": 520751,
+    "marketValueInThousandEur": 3584629
+  },
+  {
+    "id": "29c34c94-af41-4dc3-92d5-530992f3bfef",
+    "position": 4,
+    "name": "Robert Feest",
+    "age": 20,
+    "yearContractEnd": 2022,
+    "quality": 92,
+    "salaryInThousandEur": 603976,
+    "marketValueInThousandEur": 6886663
+  }
+]
