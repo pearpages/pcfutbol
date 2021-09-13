@@ -16,9 +16,9 @@ type Result = {
   score?: [number, number];
 };
 
-function CalendarSummary({ results }: { results: Result[] }) {
+function ResultsSummary({ results }: { results: Result[] }) {
   return (
-    <div style={{ width: "270px" }}>
+    <div style={{ width: "290px" }}>
       <TableContainer component={Paper}>
         <Table size={"small"} aria-label="simple table">
           <TableBody>
@@ -41,5 +41,5 @@ function CalendarSummary({ results }: { results: Result[] }) {
   );
 }
 
-export { CalendarSummary };
+export { ResultsSummary };
 export type { Result };

@@ -91,7 +91,14 @@ class Game {
     return this.teams.getTeam(this.playerTeam);
   }
 
-  getPlayerMatches(): MatchData[] {
+  getPlayerMatches(jornadaNumber?: number, numberOfMatches = 5): MatchData[] {
+    if (jornadaNumber !== undefined) {
+      return this.matches.getSpecificTeamMatches({
+        teamName: this.playerTeam,
+        jornada: jornadaNumber,
+        numberOfMatches,
+      });
+    }
     return this.matches.getTeamMatches(this.playerTeam);
   }
 

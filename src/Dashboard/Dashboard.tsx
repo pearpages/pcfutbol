@@ -3,7 +3,7 @@ import { Screen } from "../App";
 import { Classification } from "../Classification";
 import { CurrentMatch } from "../CurrentMatch";
 import { Game } from "../lib/Game";
-import { CalendarSummary } from "../CalendarSummary";
+import { Result, ResultsSummary } from "../ResultsSummary";
 
 function Dashboard({
   jornada,
@@ -31,7 +31,26 @@ function Dashboard({
         )}
       </div>
 
-      <CalendarSummary results={[]} />
+      <ResultsSummary
+        results={
+          game.getPlayerMatches(jornada).map((match, index) => {
+            if (match.result) {
+              return {
+                jornada: jornada + index + 1,
+                rival: match.teams.find((x) => x !== game.playerTeam),
+                stadium: match.teams[0] === game.playerTeam ? "HOME" : "AWAY",
+                score: match.result.score,
+              };
+            }
+            return {
+              jornada: jornada + index + 1,
+              rival: match.teams.find((x) => x !== game.playerTeam),
+              stadium: match.teams[0] === game.playerTeam ? "HOME" : "AWAY",
+              score: undefined,
+            };
+          }) as Result[]
+        }
+      />
 
       {/* <CurrentMatch game={game} jornadaNumber={jornada} />
       <Classification teams={game.teams.getAll()} /> */}

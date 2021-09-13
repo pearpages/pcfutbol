@@ -15,7 +15,7 @@ import sociedad from "./icons/sociedad.png";
 import osasuna from "./icons/osasuna.png";
 import villareal from "./icons/villareal.png";
 import cadiz from "./icons/cadiz.png";
-import levante from "./icons/villareal.png";
+import levante from "./icons/levante.png";
 import betis from "./icons/betis.png";
 import elche from "./icons/elche.png";
 import granada from "./icons/granada.png";
@@ -55,6 +55,7 @@ function Badge({ teamName }: { teamName: TeamName }) {
       src={badgeMapper(teamName)}
       alt={teamName}
       title={teamName}
+      style={{ position: "relative", top: "2px" }}
     />
   );
 }

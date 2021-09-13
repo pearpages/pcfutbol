@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CalendarSummary, Result } from ".";
+import { ResultsSummary, Result } from ".";
 
 const results: Result[] = [
   {
@@ -36,5 +36,5 @@ const results: Result[] = [
 ];
 
 export default function Demo() {
-  return <CalendarSummary results={results} />;
+  return <ResultsSummary results={results} />;
 }

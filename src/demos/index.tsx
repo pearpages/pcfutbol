@@ -3,7 +3,7 @@ import { Route } from "react-router";
 
 import DemoEleven from "../CurrentMatch/Eleven/Eleven.demo";
 import DemoBadges from "../Badge/Badge.demo";
-import DemoCalendarSummary from "../CalendarSummary/CalendarSummary.demo";
+import DemoCalendarSummary from "../ResultsSummary/ResultsSummary.demo";
 import DemoBoardSummary from "../BoardSummary/BoardSummary.demo";
 
 function getDemos() {
